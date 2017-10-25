@@ -27,7 +27,7 @@
 	$statement->execute();
 	$accounts = $statement->fetchAll();
 	$statement->closeCursor();
-	?>
+	
 	foreach ($accounts as account):
 	<tr>
     	<td><?php echo $accounts['ID']; ?></td>
