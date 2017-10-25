@@ -18,16 +18,17 @@
 			$hostname = 'sql1.njit.edu';
 			$dsn = "mysql:host=$hostname;dbname=$username";
 
-		mysql_connect($dsn, $username, $password) or die("Could not connect: " . mysql_error()); 
-		
-		$result = mysql_query("SELECT id, email FROM accounts LIMIT 5");
-
-		foreach($result['id','email'] as $rows):?>
-        <tr class="item_row">
+	try {
+    	$conn = new PDO($dsn, $username, $password);
+    	echo "Connected successfully<br>";
+	foreach($result['id','email'] as $rows):?>
             <td> <?php echo $rows['id']; ?></td>
             <td> <?php echo $rows['email']; ?></td>
-		?>
-        </tr>
+	} catch(PDOException $e) {
+    	echo "Connection failed: " . $e->getMessage();
+	}
+	$conn = null;
+	?>
         </tbody>
         </table>
     </body>
