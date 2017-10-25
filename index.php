@@ -32,8 +32,7 @@
 	<tr>
     	<td><?php echo $accounts['ID']; ?></td>
     	<td><?php echo $accounts['Email']; ?></td>
-    	<td><?php echo $product['listPrice']; ?></td>
-	</tr>
+    	</tr>
 	<?php endforeach; ?>
 
 	<?php
